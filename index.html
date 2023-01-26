@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="style.css">
+    <script src="js/Objeto.js"></script>
 </head>
+
 <body>
     <header>
 
@@ -21,33 +24,35 @@
                     Nome da tarefa: <input type="text" name="" id="Nometarefa"> <br>
                     Objetivo: <input type="text" name="" id="ObjetivoTarefa"> <br>
                     Data Limite: <input type="date" name="" id="DataConclusao"> <br>
-                    <input type="button" value="Cadastrar" id="CadastroBotao">
+                    <input type="button" onclick="tarefas .inserirDados() " value="Cadastrar" id="CadastroBotao">
+
                 </p>
             </div>
         </div>
         <p style="padding-top: 20px;">
-            <table>
-                <tr>
-                    <td>Nome da tarefa</td>
-                    <td>Objetivo</td>
-                    <td>Data Inicio</td>
-                    <td>Data Limite</td>
-                   </tr>
-            </table>
+        <table>
+            <tr>
+                <td>Nome da tarefa</td>
+                <td>Objetivo</td>
+                <td>Data Inicio</td>
+                <td>Data Limite</td>
+            </tr>
+        </table>
         </p>
         <div style="overflow-y: scroll;height: 200px;">
             <p id="tabelaCentralizar">
-                <table>
-              
-                </table>
+            <p id="MostrarObjeto"></p>
             </p>
         </div>
-           
+
     </main>
 
     <footer>
 
         <p id="FimPagina">Criado por <a href="https://github.com/MarcosViniSil">marcosVinicius</a></p>
     </footer>
+
+
 </body>
+
 </html>
