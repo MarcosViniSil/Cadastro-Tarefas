@@ -1,6 +1,7 @@
 class Tarefas {
     constructor() {
         this.TarefasLista = [];
+
     }
 
     CadastrarDados() {//recebe o que usuario digitou nos inputs e insere no objeto tarefa
@@ -11,22 +12,30 @@ class Tarefas {
         tarefa.DataInicial = this.DataReceber();
 
         return tarefa;
+
+
     }
     inserirDados() {
         let tarefa = this.CadastrarDados();
-        this.TarefasLista.push(tarefa);
-        this.mostrar();
+        if(this.validar(tarefa)){
+            this.TarefasLista.push(tarefa);
+            this.mostrarLista();
+            this.ImprimirElementos();
+        }
+   
 
-        var Inicio = document.getElementById("Nometarefa");
-        var detalhe = document.getElementById("ObjetivoTarefa");
-        var data = document.querySelector('input[type="date"]');
-        Inicio.value = "";
-        detalhe.value = "";
-        data.value = "";//limpa os campos que foram preenchidos,para nao causar conflito
+        var tarefas = document.getElementById("Nometarefa");
+        var detalhes = document.getElementById("ObjetivoTarefa");
+        var dataFinal = document.querySelector('input[type="date"]');
+
+        tarefas.value = "";
+        detalhes.value = "";
+        dataFinal.value = "";
+
     }
-    mostrar() {
+    mostrarLista() {
         for (let tarefa of this.TarefasLista) {
-           
+            console.log(tarefa);
         }
     }
 
@@ -68,6 +77,31 @@ class Tarefas {
         return dataAtual;
     }
 
+    ImprimirElementos() {
+        let tbody = document.getElementById("mostrarElementos");
+        tbody.innerHTML = "";
+        for (let i = 0; i < this.TarefasLista.length; i++) {
+            let tr = tbody.insertRow();
+
+            let td_nome = tr.insertCell();
+            let td_Objetivo = tr.insertCell();
+            let td_DataInicio = tr.insertCell();
+            let td_DataFim = tr.insertCell();
+
+            td_nome.innerText = this.TarefasLista[i].tarefa;
+            td_Objetivo.innerText = this.TarefasLista[i].detalhes;
+            td_DataInicio.innerText = this.TarefasLista[i].DataInicial;
+            td_DataFim.innerText = this.TarefasLista[i].dataFinal;
+        }
+    }
+    validar(tarefa) {
+        if (tarefa.tarefa != "" && tarefa.detalhes != "" && tarefa.dataFinal != "" && tarefa.DataInicial != "") {
+            return true;
+        } else {
+            alert("Algum campo não foi preenchido.");
+            return false;
+        }
+    }
 
 }
 var tarefas = new Tarefas();

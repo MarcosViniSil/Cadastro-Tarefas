@@ -25,25 +25,28 @@
                     Objetivo: <input type="text" name="" id="ObjetivoTarefa"> <br>
                     Data Limite: <input type="date" name="" id="DataConclusao"> <br>
                     <input type="button" onclick="tarefas .inserirDados() " value="Cadastrar" id="CadastroBotao">
+                   
 
                 </p>
             </div>
         </div>
         <p style="padding-top: 20px;">
         <table>
-            <tr>
-                <td>Nome da tarefa</td>
-                <td>Objetivo</td>
-                <td>Data Inicio</td>
-                <td>Data Limite</td>
-            </tr>
+            <thead>
+                <tr>
+                    <td>Nome da tarefa</td>
+                    <td>Objetivo</td>
+                    <td>Data Inicio</td>
+                    <td>Data Limite</td>
+                    <td>Ação</td>
+                </tr>
+            </thead>
+            <tbody id="mostrarElementos">
+
+            </tbody>
         </table>
         </p>
-        <div style="overflow-y: scroll;height: 200px;">
-            <p id="tabelaCentralizar">
-            <p id="MostrarObjeto"></p>
-            </p>
-        </div>
+
 
     </main>
 

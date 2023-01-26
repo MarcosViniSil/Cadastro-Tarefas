@@ -56,18 +56,30 @@ header>h1{
 }
 
 table{
-  
+    border: 1px solid black;
     margin: auto;
     width: 500px;
     border-collapse: collapse;
+    
 }
-
+td{
+    border: 1px solid black;
+    padding: 5px;
+   
+}
+thead{
+    background-color: gray;
+}
+tbody{
+    padding-left: 5px;
+    font-size: 13px;
+}
 #tabelaCentralizar{
     padding-top: 20px;
 }
 
 #FimPagina{
-    padding-top: -30px;
+    padding-top: 100px;
     text-align: center;
 }
 
