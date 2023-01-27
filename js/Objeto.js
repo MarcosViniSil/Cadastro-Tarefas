@@ -10,6 +10,7 @@ class Tarefas {
         tarefa.detalhes = document.getElementById("ObjetivoTarefa").value;
         tarefa.dataFinal = document.querySelector('input[type="date"]').value;
         tarefa.DataInicial = this.DataReceber();
+        tarefa.Acao="";
 
         return tarefa;
 
@@ -80,18 +81,29 @@ class Tarefas {
     ImprimirElementos() {
         let tbody = document.getElementById("mostrarElementos");
         tbody.innerHTML = "";
+        
         for (let i = 0; i < this.TarefasLista.length; i++) {
+            
             let tr = tbody.insertRow();
 
             let td_nome = tr.insertCell();
             let td_Objetivo = tr.insertCell();
             let td_DataInicio = tr.insertCell();
             let td_DataFim = tr.insertCell();
+            let td_Acao = tr.insertCell();
 
             td_nome.innerText = this.TarefasLista[i].tarefa;
             td_Objetivo.innerText = this.TarefasLista[i].detalhes;
             td_DataInicio.innerText = this.TarefasLista[i].DataInicial;
             td_DataFim.innerText = this.TarefasLista[i].dataFinal;
+            td_Acao.innerText = this.TarefasLista[i].Acao;
+
+          let img=document.createElement("img");
+          img.src ="imagens/Concluir2.png";
+          td_Acao.appendChild(img);
+          img.setAttribute("onclick"," tarefas.concluirTarefa("+i+")");
+            
+           
         }
     }
     validar(tarefa) {
@@ -101,6 +113,15 @@ class Tarefas {
             alert("Algum campo não foi preenchido.");
             return false;
         }
+    }
+    concluirTarefa(posicao){
+        let tbody = document.getElementById("mostrarElementos");
+       for(var i=0; i<this.TarefasLista.length;i++){
+           if(this.TarefasLista[i].tarefa == this.TarefasLista[posicao].tarefa){
+             this.TarefasLista.splice(posicao,1);
+             tbody.deleteRow(i);
+           }
+       }
     }
 
 }

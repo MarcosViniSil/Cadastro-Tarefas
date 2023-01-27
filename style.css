@@ -68,6 +68,7 @@ td{
    
 }
 thead{
+  
     background-color: gray;
 }
 tbody{
@@ -79,7 +80,7 @@ tbody{
 }
 
 #FimPagina{
-    padding-top: 100px;
+    
     text-align: center;
 }
 
